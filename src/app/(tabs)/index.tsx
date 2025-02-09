@@ -1,6 +1,8 @@
 import { Text, View } from 'react-native'
 import { useColorScheme } from 'nativewind'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import { Button } from '@/components/button'
+import { router } from 'expo-router'
 
 export default function TabOneScreen() {
   const { colorScheme, setColorScheme } = useColorScheme()
@@ -9,7 +11,7 @@ export default function TabOneScreen() {
     const newTheme = colorScheme === 'light' ? 'dark' : 'light'
     console.log('Toggle ' + newTheme)
     setColorScheme(newTheme)
-    await AsyncStorage.setItem('theme', newTheme) 
+    await AsyncStorage.setItem('theme', newTheme)
   }
 
   return (
@@ -22,6 +24,7 @@ export default function TabOneScreen() {
       >
         {`The color scheme is ${colorScheme}`}
       </Text>
+      <Button onPress={() => router.navigate('/(auth)/login')}>Login</Button>
     </View>
   )
 }
