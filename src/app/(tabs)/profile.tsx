@@ -1,9 +1,21 @@
 import { Card } from '@/components/card'
+import { Switch } from '@/components/ui/switch'
 import { title } from '@/styles/texts'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import { Bell, BookOpen, LogOut, Moon, UserRoundPen } from 'lucide-react-native'
+import { useColorScheme } from 'nativewind'
+import { useState } from 'react'
 import { Text, View } from 'react-native'
 
 export default function Profile() {
+  const { colorScheme, setColorScheme } = useColorScheme()
+
+  const toggleTheme = async () => {
+    const newTheme = colorScheme === 'light' ? 'dark' : 'light'
+    setColorScheme(newTheme)
+    await AsyncStorage.setItem('theme', newTheme)
+  }
+
   return (
     <View className='flex flex-1 gap-12 py-12'>
       <View className='flex items-center '>
@@ -29,11 +41,26 @@ export default function Profile() {
           <Text className='text-sm text-black leading-[1.4] font-semibold'>
             App
           </Text>
-          <Card>
-            <Card.Icon icon={Bell} />
-            <Card.Title>Documentação</Card.Title>
-          </Card>
-          <Card>
+          <Card.Root>
+            <Card.Content>
+              <Card.Icon icon={Bell} />
+              <Card.Title>Receber notificações</Card.Title>
+            </Card.Content>
+            <Card.Switch size='md' />
+          </Card.Root>
+
+          <Card.Root>
+            <Card.Content>
+              <Card.Icon icon={Moon} />
+              <Card.Title>Dark mode</Card.Title>
+            </Card.Content>
+            <Card.Switch
+              size='md'
+              value={colorScheme === 'dark'}
+              onValueChange={toggleTheme}
+            />
+          </Card.Root>
+          {/* <Card>
             <Card.Icon icon={Moon} />
             <Card.Title>Documentação</Card.Title>
           </Card>
@@ -49,11 +76,12 @@ export default function Profile() {
           <Card>
             <Card.Icon icon={LogOut} />
             <Card.Title>Log-out</Card.Title>
+            <Switch />
           </Card>
           <Card>
             <Card.Icon icon={UserRoundPen} />
             <Card.Title>Alterar email ou senha</Card.Title>
-          </Card>
+          </Card> */}
         </View>
       </View>
     </View>
