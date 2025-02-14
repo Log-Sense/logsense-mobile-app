@@ -29,7 +29,6 @@ SplashScreen.preventAutoHideAsync()
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
-    Inter_900Black,
     Inter_400Regular,
     Inter_500Medium,
     Inter_600SemiBold,
