@@ -1,6 +1,4 @@
 import { Text, View } from 'react-native'
-import { useColorScheme } from 'nativewind'
-import AsyncStorage from '@react-native-async-storage/async-storage'
 import { Button } from '@/components/button'
 import { router } from 'expo-router'
 

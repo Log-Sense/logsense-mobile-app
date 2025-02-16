@@ -1,30 +1,29 @@
 import React from 'react'
-import FontAwesome from '@expo/vector-icons/FontAwesome' // remover essas dependencias
-import { Link, Tabs } from 'expo-router'
-import { Pressable } from 'react-native'
+import { Tabs } from 'expo-router'
+import { View } from 'react-native'
 import { ChartPie, TriangleAlert, UserRound } from 'lucide-react-native'
+import { CustomHeader } from '@/components/custom-header'
+import { useColorScheme } from 'nativewind'
+import { CustomTabBar } from '@/components/custom-tab-bar'
 
 export default function TabLayout() {
+  const { colorScheme } = useColorScheme()
+  const isDark = colorScheme === 'dark'
+
   return (
-    <Tabs>
+    <Tabs
+      screenOptions={{
+        header: ({ route, options }) => (
+          <CustomHeader title={options.title || route.name} />
+        ),
+      }}
+      tabBar={(props) => <CustomTabBar {...props} />}
+    >
       <Tabs.Screen
         name='index'
         options={{
           title: 'Dashboard',
           tabBarIcon: ({ color }) => <ChartPie color={color} />,
-          headerRight: () => (
-            <Link href='/modal' asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name='info-circle'
-                    size={25}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
-          ),
         }}
       />
       <Tabs.Screen
