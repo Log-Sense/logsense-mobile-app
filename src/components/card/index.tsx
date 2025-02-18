@@ -1,4 +1,4 @@
-import { Switch } from "@/components/ui/switch";
+import { Switch } from "@/gluestack-ui-components/ui/switch";
 import { CardContent, CardIcon, CardRoot, CardTitle } from "./card";
 
 export const Card = {
