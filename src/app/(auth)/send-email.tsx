@@ -3,11 +3,11 @@ import { Button } from '@/components/button'
 import { Input } from '@/components/input'
 import { router } from 'expo-router'
 
-export default function Login() {
+export default function SendEmail() {
   return (
     <View className='flex flex-1 gap-6 px-6 items-center justify-center'>
       <View className='flex w-full gap-6'>
-        <Text className='text-left font-semibold text-xl'>Login</Text>
+        <Text className='text-left font-semibold text-xl'>Recuperação de senha</Text>
         <Text className='text-sm font-semibold text-zinc-600'>
           Email e senha necessários para a autenticação
         </Text>
@@ -16,10 +16,7 @@ export default function Login() {
         <Input placeholder='Informe seu email' />
         <Input placeholder='Informe sua senha' />
       </View>
-      <Text
-        className='text-sm font-semibold underline text-zinc-600'
-        onPress={() => router.navigate('/(auth)/send-email')}
-      >
+      <Text className='text-sm font-semibold underline text-zinc-600'>
         Esqueci a senha
       </Text>
       <Button>Confirmar</Button>

@@ -1,20 +1,38 @@
 import { title } from '@/styles/texts'
+import { ExternalPathString, Link } from 'expo-router'
 import { useColorScheme } from 'nativewind'
 import { Text, TextProps, View } from 'react-native'
 
 type CardProps = {
   children: React.ReactNode
+  redirectTo?: string
 }
 
-export function CardRoot({ children }: CardProps) {
+type CardRootLinkProps = Pick<CardProps, 'children'> & {
+  url: ExternalPathString
+}
+
+type CardContentProps = Pick<CardProps, 'children'>
+
+export function CardRoot({ children, redirectTo }: CardProps) {
   return (
-    <View className='text-black border border-zinc-300 rounded-lg flex flex-row justify-between p-3 dark:border-zinc-800'>
+    <View className='w-full text-black border border-zinc-300 rounded-lg flex flex-row justify-between p-3 dark:border-zinc-800'>
       {children}
     </View>
   )
 }
 
-export function CardContent({ children }: CardProps) {
+export function CardRootLink({ children, url }: CardRootLinkProps) {
+  return (
+    <Link href={url}>
+      <View className='w-full text-black border border-zinc-300 rounded-lg flex flex-row justify-between p-3 dark:border-zinc-800'>
+        {children}
+      </View>
+    </Link>
+  )
+}
+
+export function CardContent({ children }: CardContentProps) {
   return (
     <View className='flex flex-row gap-2 p-3 items-center '>{children}</View>
   )

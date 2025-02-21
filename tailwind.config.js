@@ -1,4 +1,4 @@
-import gluestackPlugin from '@gluestack-ui/nativewind-utils/tailwind-plugin';
+import gluestackPlugin from '@gluestack-ui/nativewind-utils/tailwind-plugin'
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -179,9 +179,16 @@ module.exports = {
         body: undefined,
         mono: undefined,
         roboto: ['Roboto', 'sans-serif'],
+        inter: ['Inter_400Regular', 'Inter_500Medium', 'Inter_600SemiBold'],
+        interRegular: ['Inter_400Regular'],
+        interMedium: ['Inter_500Medium'],
+        interSemiBold: ['Inter_600SemiBold'],
       },
       fontWeight: {
         extrablack: '950',
+        normal: '400',
+        medium: '500',
+        semibold: '600',
       },
       fontSize: {
         '2xs': '10px',
@@ -200,4 +207,4 @@ module.exports = {
     },
   },
   plugins: [gluestackPlugin],
-};
+}

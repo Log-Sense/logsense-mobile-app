@@ -4,6 +4,7 @@ import { title } from '@/styles/texts'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { Bell, BookOpen, LogOut, Moon, UserRoundPen } from 'lucide-react-native'
 import { useColorScheme } from 'nativewind'
+import { Link } from 'expo-router'
 
 export default function Profile() {
   const { colorScheme, setColorScheme } = useColorScheme()
@@ -15,7 +16,7 @@ export default function Profile() {
   }
 
   return (
-    <View className='flex flex-1 gap-12 py-12 dark:bg-zinc-950'>
+    <View className='flex flex-1 gap-12 py-12 bg-white dark:bg-zinc-950'>
       <View className='flex items-center '>
         <View className='flex bg-blue-100 size-[72px] items-center justify-center rounded-full'>
           <Text style={title.semiBold} className='text-2xl text-blue-700'>
@@ -63,12 +64,14 @@ export default function Profile() {
               onValueChange={toggleTheme}
             />
           </Card.Root>
-          <Card.Root>
+
+          <Card.Link url='https://docs.expo.dev/'>
             <Card.Content>
               <Card.Icon icon={BookOpen} />
               <Card.Title>Documentação</Card.Title>
             </Card.Content>
-          </Card.Root>
+          </Card.Link>
+
           <Text
             style={title.semiBold}
             className='text-sm text-black leading-[1.4] font-semibold dark:text-zinc-200'
