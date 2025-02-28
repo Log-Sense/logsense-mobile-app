@@ -16,9 +16,6 @@ export default function SendEmail() {
         <Input placeholder='Informe seu email' />
         <Input placeholder='Informe sua senha' />
       </View>
-      <Text className='text-sm font-semibold underline text-zinc-600'>
-        Esqueci a senha
-      </Text>
       <Button>Confirmar</Button>
       <Text className='text-sm font-semibold text-zinc-600'>
         Ainda não tenho uma conta -{' '}

@@ -14,13 +14,15 @@
       "backgroundColor": "#2563EB"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.ismaelhenriquedev.LogSense"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.ismaelhenriquedev.LogSense"
     },
     "web": {
       "bundler": "metro",
@@ -33,6 +35,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "18e511f5-256b-44cd-83aa-8580fe2a40b1"
+      }
     }
   }
 }
